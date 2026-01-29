@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammad Sayeed - Elite Web & Software Developer</title>
+  <meta name="description" content="Professional Web Developer specializing in Oracle APEX, Database Development, Ethical Hacking, and Cyber Security Solutions">
+  
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    /* ============================================
+   PREMIUM 3D PORTFOLIO - MOHAMMAD SAYEED
+   Color Palette: Deep Charcoal, Gold, White
+   ============================================ */
+
+:root {
+  /* Colors */
+  --color-bg: #0D0D0D;
+  --color-bg-secondary: #1A1A1A;
+  --color-bg-card: #252525;
+  --color-text: #FFFFFF;
+  --color-text-secondary: #B8B8B8;
+  --color-text-muted: #E0E0E0; /* NEW: Brighter for inactive text */
+  --color-accent: #D4AF37;
+  --color-accent-hover: #F4CF47;
+  --color-border: #333333;
+  
+  /* Typography */
+  --font-primary: 'Space Grotesk', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 15px 60px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-secondary);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none; /* Hide default cursor for custom one */
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ============================================
+   CUSTOM CURSOR
+   ============================================ */
+
+.custom-cursor,
+.cursor-follower {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.custom-cursor {
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+}
+
+.cursor-follower {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--color-accent);
+}
+
+/* Hover state for cursor */
+body.hovering .cursor-follower {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+@media (max-width: 1024px) {
+  body { cursor: auto; }
+  .custom-cursor, .cursor-follower { display: none; }
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensures Nav is above everything */
+  padding: 1.5rem 0;
+  background: rgba(13, 13, 13, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition-normal);
+}
+
+.main-nav.scrolled {
+  padding: 1rem 0;
+  background: rgba(13, 13, 13, 0.95);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.logo-text {
+  font-family: var(--font-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: -0.02em;
+}
+
+.logo-subtext {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  font-weight: 300;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+  align-items: center;
+}
+
+.nav-link {
+  position: relative;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: var(--transition-fast);
+  padding: 0.5rem 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: var(--transition-normal);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-accent);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.nav-toggle span {
+  width: 25px;
+  height: 2px;
+  background: var(--color-text);
+  transition: var(--transition-normal);
+}
+
+/* ============================================
+   3D HERO SECTION
+   ============================================ */
+
+.hero-3d {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 100px; /* More padding to clear Nav */
+}
+
+#canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5; /* Higher than Canvas to ensure visibility */
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(212, 175, 55, 0.15); /* Slightly darker bg for contrast */
+  border: 1px solid var(--color-accent);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+  animation: pulse 2s ease-in-out infinite;
+  position: relative;
+  z-index: 10; /* Force above everything */
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+  }
+}
+
+.label-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hero-title {
+  font-family: var(--font-primary);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+}
+
+.title-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.8s ease forwards;
+}
+
+.title-line:nth-child(1) { animation-delay: 0.2s; }
+.title-line:nth-child(2) { animation-delay: 0.4s; }
+
+@keyframes slideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.title-highlight {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.hero-roles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: var(--color-text-muted); /* Changed to muted white */
+  min-height: 1.6em;
+}
+
+.role-item {
+  transition: var(--transition-fast);
+  cursor: default;
+  color: var(--color-text-secondary); /* Default inactive color (Grey) */
+  transform: translateY(5px);
+  transition: all 0.5s ease;
+}
+
+.role-item.active {
+  color: var(--color-accent);
+  opacity: 1;
+  transform: translateY(0);
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); /* Glow effect */
+}
+
+.role-separator {
+  color: var(--color-border);
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  max-width: 650px;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeIn 0.8s ease 0.6s forwards;
+}
+
+@keyframes fadeIn { to { opacity: 1; } }
+
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: var(--transition-normal);
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  box-shadow: var(--shadow-gold);
+  z-index: 1;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 0%; height: 100%;
+  background: var(--color-accent-hover);
+  transition: var(--transition-normal);
+  z-index: -1;
+}
+
+.btn-primary:hover::before { width: 100%; }
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.5);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-text);
+  border: 2px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+}
+
+.btn-outline:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-gold);
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 600px;
+}
+
+.stat-item {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: var(--transition-normal);
+}
+
+.stat-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--color-accent);
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  z-index: 2;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+.scroll-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0% { transform: translateY(-20px); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(20px); opacity: 0; }
+}
+
+/* ============================================
+   SECTIONS COMMON
+   ============================================ */
+
+section {
+  padding: var(--spacing-xl) 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-primary);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+/* ============================================
+   EXPERTISE SECTION
+   ============================================ */
+
+.expertise-section {
+  background: var(--color-bg-secondary);
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.expertise-card {
+  padding: 2.5rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  transition: var(--transition-slow);
+  position: relative;
+  overflow: hidden;
+}
+
+.expertise-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: var(--transition-slow);
+}
+
+.expertise-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.expertise-card:hover::before {
+  transform: scaleX(1);
+}
+
+.card-icon {
+  width: 70px;
+  height: 70px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  transition: var(--transition-normal);
+}
+
+.card-icon i {
+  font-size: 2rem;
+  color: var(--color-accent);
+}
+
+.expertise-card:hover .card-icon {
+  background: var(--color-accent);
+  transform: scale(1.1) rotate(5deg);
+}
+
+.expertise-card:hover .card-icon i {
+  color: var(--color-bg);
+}
+
+.expertise-card h3 {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.expertise-card p {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+}
+
+.tech-tags li {
+  padding: 0.4rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  transition: var(--transition-fast);
+}
+
+.expertise-card:hover .tech-tags li {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ============================================
+   FEATURED PROJECTS
+   ============================================ */
+
+.featured-projects {
+  background: var(--color-bg);
+}
+
+.projects-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.project-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: var(--transition-slow);
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.project-image {
+  position: relative;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-slow);
+  background-color: #222;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.1);
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition-normal);
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-link {
+  padding: 1rem 2rem;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transform: translateY(20px);
+  transition: var(--transition-normal);
+}
+
+.project-card:hover .project-link {
+  transform: translateY(0);
+}
+
+.project-info {
+  padding: 2rem;
+}
+
+.project-info h3 {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.project-info p {
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.project-tags {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.project-tags span {
+  padding: 0.4rem 1rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--color-accent);
+}
+
+.section-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+
+.cta-section {
+  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg) 100%);
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+}
+
+.cta-content h2 {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.main-footer {
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  padding: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand h3 {
+  font-family: var(--font-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+.footer-brand p {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.footer-section h4 {
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.footer-section ul { list-style: none; }
+
+.footer-section ul li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-section ul li a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.footer-section ul li a:hover {
+  color: var(--color-accent);
+  padding-left: 5px;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: var(--transition-normal);
+}
+
+.social-links a:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-bg);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: var(--color-bg-secondary);
+    flex-direction: column;
+    padding: 5rem 2rem;
+    gap: 1.5rem;
+    transition: var(--transition-slow);
+    border-left: 1px solid var(--color-border);
+  }
+  
+  .nav-menu.active {
+    right: 0;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  }
+  
+  .nav-toggle { display: flex; }
+  
+  .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translateY(12px); }
+  .nav-toggle.active span:nth-child(2) { opacity: 0; }
+  .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translateY(-12px); }
+
+  .hero-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --spacing-xl: 4rem;
+    --spacing-lg: 3rem;
+  }
+  
+  .hero-content { padding-top: 100px; }
+  .hero-actions { flex-direction: column; }
+  .btn { width: 100%; justify-content: center; }
+  
+  .expertise-grid, .projects-preview { grid-template-columns: 1fr; }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .footer-links { grid-template-columns: 1fr; gap: 2rem; }
+  
+  .hero-stats { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .nav-container, .container { padding: 0 1rem; }
+}
+
+/* ============================================
+   ANIMATIONS & UTILITIES
+   ============================================ */
+
+[data-aos] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.loading { opacity: 0; pointer-events: none; }
+.loaded { opacity: 1; pointer-events: all; }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor Elements -->
+  <div class="custom-cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo hover-target">
+        <span class="logo-text">MS</span>
+        <span class="logo-subtext">Developer</span>
+      </a>
+      
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link active hover-target">Home</a></li>
+        <li><a href="about.html" class="nav-link hover-target">About</a></li>
+        <li><a href="resume.html" class="nav-link hover-target">Resume</a></li>
+        <li><a href="services.html" class="nav-link hover-target">Services</a></li>
+        <li><a href="portfolio.html" class="nav-link hover-target">Portfolio</a></li>
+        <li><a href="contact.html" class="nav-link hover-target">Contact</a></li>
+      </ul>
+      
+      <button class="nav-toggle hover-target" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 3D Hero Section -->
+  <section class="hero-3d">
+    <div id="canvas-container"></div>
+    
+    <div class="hero-content">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="hero-label">
+            <span class="label-dot"></span>
+            Available for freelance
+          </div>
+          
+          <h1 class="hero-title">
+            <span class="title-line">I'm</span>
+            <span class="title-line title-highlight">Mohammad Sayeed</span>
+          </h1>
+          
+          <div class="hero-roles">
+            <span class="role-item active">Web Developer</span>
+            <span class="role-separator">/</span>
+            <span class="role-item">Oracle APEX Expert</span>
+            <span class="role-separator">/</span>
+            <span class="role-item">Database Developer</span>
+            <span class="role-separator">/</span>
+            <span class="role-item">Ethical Hacker</span>
+            <span class="role-separator">/</span>
+            <span class="role-item">Cyber Security Specialist</span>
+          </div>
+          
+          <p class="hero-description">
+            I specialize in building secure, scalable enterprise applications using Oracle APEX, 
+            developing robust web solutions with PHP & MySQL, and ensuring digital security through 
+            ethical hacking practices.
+          </p>
+          
+          <div class="hero-actions">
+            <a href="portfolio.html" class="btn btn-primary hover-target">
+              <span>View Projects</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="contact.html" class="btn btn-secondary hover-target">
+              <span>Get in Touch</span>
+            </a>
+          </div>
+          
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number">70+</div>
+              <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">10+</div>
+              <div class="stat-label">Systems & Modules</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">5+</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+          </div>
+        </div>
+        <!-- Right side is reserved for 3D Visuals via absolute positioning -->
+        <div></div> 
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- Expertise Section -->
+  <section class="expertise-section">
+    <div class="container">
+      <div class="section-header" data-aos>
+        <span class="section-label">What I Do</span>
+        <h2 class="section-title">Areas of Expertise</h2>
+      </div>
+      
+      <div class="expertise-grid">
+        <div class="expertise-card hover-target" data-aos data-aos-delay="0">
+          <div class="card-icon">
+            <i class="bi bi-code-slash"></i>
+          </div>
+          <h3>Web Development</h3>
+          <p>Custom websites and web applications built with modern technologies. Responsive, fast, and user-friendly solutions.</p>
+          <ul class="tech-tags">
+            <li>HTML/CSS</li>
+            <li>JavaScript</li>
+            <li>PHP</li>
+            <li>MySQL</li>
+          </ul>
+        </div>
+        
+        <div class="expertise-card hover-target" data-aos data-aos-delay="100">
+          <div class="card-icon">
+            <i class="bi bi-diagram-3"></i>
+          </div>
+          <h3>Oracle APEX</h3>
+          <p>Enterprise-grade applications with Oracle APEX. Rapid development of data-driven solutions with robust security.</p>
+          <ul class="tech-tags">
+            <li>APEX</li>
+            <li>PL/SQL</li>
+            <li>Oracle DB</li>
+            <li>REST APIs</li>
+          </ul>
+        </div>
+        
+        <div class="expertise-card hover-target" data-aos data-aos-delay="200">
+          <div class="card-icon">
+            <i class="bi bi-database"></i>
+          </div>
+          <h3>Database Development</h3>
+          <p>Design and optimization of database systems. Ensuring data integrity, performance, and scalability.</p>
+          <ul class="tech-tags">
+            <li>Oracle</li>
+            <li>MySQL</li>
+            <li>Schema Design</li>
+            <li>Optimization</li>
+          </ul>
+        </div>
+        
+        <div class="expertise-card hover-target" data-aos data-aos-delay="300">
+          <div class="card-icon">
+            <i class="bi bi-shield-lock"></i>
+          </div>
+          <h3>Cyber Security</h3>
+          <p>Protecting digital assets with advanced security measures. Ethical hacking and vulnerability assessment.</p>
+          <ul class="tech-tags">
+            <li>Penetration Testing</li>
+            <li>RBAC</li>
+            <li>Security Audits</li>
+            <li>CSRF Protection</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Preview -->
+  <section class="featured-projects">
+    <div class="container">
+      <div class="section-header" data-aos>
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+      
+      <div class="projects-preview">
+        <div class="project-card hover-target" data-aos data-aos-delay="0">
+          <div class="project-image">
+            <img src="https://picsum.photos/seed/umz/600/400" alt="UMZ Madrasa" loading="lazy">
+            <div class="project-overlay">
+              <a href="https://www.umzmadrasa.com/" target="_blank" class="project-link hover-target">View Project</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>UMZ Madrasa</h3>
+            <p>Educational Institution Website</p>
+            <div class="project-tags">
+              <span>Education</span>
+              <span>WordPress</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card hover-target" data-aos data-aos-delay="100">
+          <div class="project-image">
+            <img src="https://picsum.photos/seed/rijm/600/400" alt="RIJM Bangladesh" loading="lazy">
+            <div class="project-overlay">
+              <a href="https://www.rijmbd.org/" target="_blank" class="project-link hover-target">View Project</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>RIJM Bangladesh</h3>
+            <p>Organization Website</p>
+            <div class="project-tags">
+              <span>Corporate</span>
+              <span>Custom CMS</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card hover-target" data-aos data-aos-delay="200">
+          <div class="project-image">
+            <img src="https://picsum.photos/seed/10ts/600/400" alt="10 Takar Sheba" loading="lazy">
+            <div class="project-overlay">
+              <a href="https://www.10takarsheba.com/" target="_blank" class="project-link hover-target">View Project</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3>10 Takar Sheba</h3>
+            <p>E-commerce Platform</p>
+            <div class="project-tags">
+              <span>E-commerce</span>
+              <span>PHP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section-cta">
+        <a href="portfolio.html" class="btn btn-outline hover-target">
+          <span>View All Projects</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content" data-aos>
+        <h2>Let's Build Something Amazing Together</h2>
+        <p>I'm available for freelance projects and collaborations. Let's turn your ideas into reality.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary hover-target">
+            <span>Start a Project</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+          <a href="resume.html" class="btn btn-secondary hover-target">
+            <span>Download Resume</span>
+            <i class="bi bi-download"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Mohammad Sayeed</h3>
+          <p>Web Developer • Oracle APEX Expert • Cyber Security Specialist</p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-section">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="about.html" class="hover-target">About</a></li>
+              <li><a href="resume.html" class="hover-target">Resume</a></li>
+              <li><a href="services.html" class="hover-target">Services</a></li>
+              <li><a href="portfolio.html" class="hover-target">Portfolio</a></li>
+              <li><a href="contact.html" class="hover-target">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="services.html" class="hover-target">Web Development</a></li>
+              <li><a href="services.html" class="hover-target">Oracle APEX</a></li>
+              <li><a href="services.html" class="hover-target">Database Solutions</a></li>
+              <li><a href="services.html" class="hover-target">Cyber Security</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4>Connect</h4>
+            <div class="social-links">
+              <a href="#" aria-label="Twitter" class="hover-target"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" aria-label="Facebook" class="hover-target"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="LinkedIn" class="hover-target"><i class="bi bi-linkedin"></i></a>
+              <a href="#" aria-label="GitHub" class="hover-target"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Mohammad Sayeed. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Three.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <script>
+    // ============================================
+    // PREMIUM 3D PORTFOLIO - MAIN JAVASCRIPT
+    // ============================================
+
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // ============================================
+        // 1. Navigation Logic
+        // ============================================
+        const nav = document.querySelector('.main-nav');
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const body = document.body;
+
+        // Scroll effect for navbar
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close menu when clicking a link
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // ============================================
+        // 2. Custom Cursor Logic
+        // ============================================
+        const cursor = document.querySelector('.custom-cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        
+        let cursorX = 0;
+        let cursorY = 0;
+        let followerX = 0;
+        let followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            cursorX = e.clientX;
+            cursorY = e.clientY;
+        });
+
+        function animateCursor() {
+            // Main dot follows instantly
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            
+            // Follower lags slightly behind
+            followerX += (cursorX - followerX) * 0.1;
+            followerY += (cursorY - followerY) * 0.1;
+            
+            cursorFollower.style.left = followerX + 'px';
+            cursorFollower.style.top = followerY + 'px';
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Hover effect for cursor
+        const hoverTargets = document.querySelectorAll('.hover-target');
+        hoverTargets.forEach(target => {
+            target.addEventListener('mouseenter', () => body.classList.add('hovering'));
+            target.addEventListener('mouseleave', () => body.classList.remove('hovering'));
+        });
+
+        // ============================================
+        // 3. 3D Scene Setup (Three.js)
+        // ============================================
+        const canvasContainer = document.getElementById('canvas-container');
+
+        if (canvasContainer) {
+            // Scene
+            const scene = new THREE.Scene();
+            
+            // Camera
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+
+            // Renderer
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            canvasContainer.appendChild(renderer.domElement);
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+
+            const pointLight1 = new THREE.PointLight(0xD4AF37, 1.5, 100); // Gold
+            pointLight1.position.set(5, 5, 5);
+            scene.add(pointLight1);
+
+            const pointLight2 = new THREE.PointLight(0x1387c1, 0.8, 100); // Blue accent
+            pointLight2.position.set(-5, -5, 5);
+            scene.add(pointLight2);
+
+            // Objects Group
+            const group = new THREE.Group();
+
+            // 1. Main Icosahedron (Wireframe)
+            const geometry1 = new THREE.IcosahedronGeometry(1.2, 0);
+            const material1 = new THREE.MeshPhongMaterial({
+                color: 0xD4AF37,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.3
+            });
+            const mesh1 = new THREE.Mesh(geometry1, material1);
+            group.add(mesh1);
+
+            // 2. Inner Octahedron (Solid but glassy)
+            const geometry2 = new THREE.OctahedronGeometry(0.7, 0);
+            const material2 = new THREE.MeshPhongMaterial({
+                color: 0xD4AF37,
+                emissive: 0xaa8800,
+                emissiveIntensity: 0.2,
+                shininess: 100,
+                transparent: true,
+                opacity: 0.8
+            });
+            const mesh2 = new THREE.Mesh(geometry2, material2);
+            group.add(mesh2);
+
+            // 3. Floating Particles
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 200;
+            const posArray = new Float32Array(particlesCount * 3);
+
+            for (let i = 0; i < particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 12; // Spread wider
+            }
+
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.03,
+                color: 0xD4AF37,
+                transparent: true,
+                opacity: 0.6
+            });
+            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particlesMesh);
+
+            // 4. Floating Tech Cubes (Representing HTML, JS, SQL)
+            const cubes = [];
+            const createCube = (x, y, z, scale) => {
+                const geo = new THREE.BoxGeometry(scale, scale, scale);
+                const mat = new THREE.MeshPhongMaterial({
+                    color: 0xFFFFFF,
+                    emissive: 0xD4AF37,
+                    emissiveIntensity: 0.4
+                });
+                const cube = new THREE.Mesh(geo, mat);
+                cube.position.set(x, y, z);
+                scene.add(cube);
+                cubes.push(cube);
+                return cube;
+            };
+
+            createCube(2.5, 1, 0, 0.2);
+            createCube(-2.5, -1, 0, 0.25);
+            createCube(0, 1.8, -1, 0.15);
+
+            // Position the main group to the right side
+            group.position.x = 2.5; 
+            scene.add(group);
+
+            // Mouse Interaction Variables
+            let mouseX = 0;
+            let mouseY = 0;
+            let targetX = 0;
+            let targetY = 0;
+
+            const windowHalfX = window.innerWidth / 2;
+            const windowHalfY = window.innerHeight / 2;
+
+            document.addEventListener('mousemove', (event) => {
+                mouseX = (event.clientX - windowHalfX);
+                mouseY = (event.clientY - windowHalfY);
+            });
+
+            // Animation Loop
+            const clock = new THREE.Clock();
+
+            const animate = () => {
+                requestAnimationFrame(animate);
+
+                // Performance: Stop rendering if tab is hidden
+                if (document.hidden) return;
+
+                const elapsedTime = clock.getElapsedTime();
+
+                // Rotate main structure
+                mesh1.rotation.x += 0.002;
+                mesh1.rotation.y += 0.003;
+                
+                mesh2.rotation.x -= 0.003;
+                mesh2.rotation.y -= 0.002;
+
+                // Animate Cubes
+                cubes.forEach((cube, index) => {
+                    cube.rotation.x += 0.01;
+                    cube.rotation.y += 0.01;
+                    // Floating effect
+                    cube.position.y += Math.sin(elapsedTime + index) * 0.002;
+                });
+
+                // Smooth Mouse Follow (Parallax)
+                targetX = mouseX * 0.001;
+                targetY = mouseY * 0.001;
+
+                group.rotation.y += 0.05 * (targetX - group.rotation.y);
+                group.rotation.x += 0.05 * (targetY - group.rotation.x);
+
+                // Move camera slightly based on mouse
+                camera.position.x += (mouseX * 0.0005 - camera.position.x) * 0.05;
+                camera.position.y += (-mouseY * 0.0005 - camera.position.y) * 0.05;
+                camera.lookAt(scene.position);
+
+                // Particles slow rotation
+                particlesMesh.rotation.y = elapsedTime * 0.02;
+
+                renderer.render(scene, camera);
+            };
+
+            animate();
+
+            // Handle Resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        // ============================================
+        // 4. Role Cycling Animation
+        // ============================================
+        const roleItems = document.querySelectorAll('.role-item');
+        if (roleItems.length > 0) {
+            let currentRole = 0;
+            setInterval(() => {
+                roleItems[currentRole].classList.remove('active');
+                currentRole = (currentRole + 1) % roleItems.length;
+                roleItems[currentRole].classList.add('active');
+            }, 3000); // Change every 3 seconds
+        }
+
+        // ============================================
+        // 5. Scroll Animations (Intersection Observer)
+        // ============================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('aos-animate');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('[data-aos]').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ============================================
+        // 6. Loading State
+        // ============================================
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
+    });
+  </script>
+</body>
+</html>

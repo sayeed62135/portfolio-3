@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Mohammad Sayeed</title>
+  <meta name="description" content="Portfolio of Mohammad Sayeed featuring Web Development, Oracle APEX, and Creative Projects.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- GLightbox CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       PORTFOLIO PAGE STYLES
+       Inherits Main Theme Variables
+       ============================================ */
+    
+    :root {
+      --color-bg: #0D0D0D;
+      --color-bg-secondary: #1A1A1A;
+      --color-bg-card: #252525;
+      --color-text: #FFFFFF;
+      --color-text-secondary: #B8B8B8;
+      --color-accent: #D4AF37;
+      --color-accent-hover: #F4CF47;
+      --color-border: #333333;
+      --font-primary: 'Space Grotesk', sans-serif;
+      --font-secondary: 'Inter', sans-serif;
+      --transition-normal: 0.3s ease;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: var(--font-secondary);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ============================================
+       NAVIGATION (Same as Home)
+       ============================================ */
+    .main-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 1.5rem 0; background: rgba(13, 13, 13, 0.8);
+      backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: var(--transition-normal);
+    }
+    .main-nav.scrolled { padding: 1rem 0; background: rgba(13, 13, 13, 0.95); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); }
+    
+    .nav-container {
+      max-width: 1400px; margin: 0 auto; padding: 0 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    
+    .nav-logo {
+      display: flex; align-items: baseline; gap: 0.5rem; text-decoration: none;
+    }
+    .logo-text { font-family: var(--font-primary); font-size: 1.8rem; font-weight: 700; color: var(--color-accent); }
+    .logo-subtext { font-size: 0.9rem; color: var(--color-text-secondary); font-weight: 300; }
+    
+    .nav-menu { display: flex; list-style: none; gap: 3rem; align-items: center; }
+    .nav-link {
+      position: relative; color: var(--color-text); text-decoration: none;
+      font-size: 0.95rem; font-weight: 500; transition: var(--transition-normal);
+    }
+    .nav-link:hover, .nav-link.active { color: var(--color-accent); }
+    
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; z-index: 1001; }
+    .nav-toggle span { display: block; width: 25px; height: 2px; background: var(--color-text); margin: 6px 0; transition: 0.3s; }
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+    /* Mobile Nav */
+    @media (max-width: 1024px) {
+      .nav-menu {
+        position: fixed; top: 0; right: -100%; width: 300px; height: 100vh;
+        background: var(--color-bg-secondary); flex-direction: column; padding: 5rem 2rem;
+        gap: 1.5rem; transition: 0.5s; border-left: 1px solid var(--color-border);
+      }
+      .nav-menu.active { right: 0; }
+      .nav-toggle { display: block; }
+    }
+
+    /* ============================================
+       PAGE HEADER
+       ============================================ */
+    .page-header {
+      padding: 160px 0 80px; /* Top padding accounts for fixed nav */
+      text-align: center;
+      background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+    }
+    
+    .page-title {
+      font-family: var(--font-primary); font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700; color: var(--color-text); margin-bottom: 1rem;
+    }
+    
+    .page-subtitle {
+      color: var(--color-text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto;
+    }
+
+    /* ============================================
+       FILTERS
+       ============================================ */
+    .portfolio-filters {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;
+      margin-bottom: 3rem; padding: 0 1rem;
+    }
+    
+    .filter-btn {
+      background: transparent; border: 1px solid var(--color-border);
+      color: var(--color-text-secondary); padding: 0.6rem 1.5rem; border-radius: 50px;
+      font-family: var(--font-secondary); font-size: 0.9rem; cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--color-accent); color: var(--color-bg); border-color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================
+       PORTFOLIO GRID
+       ============================================ */
+    .portfolio-container {
+      max-width: 1400px; margin: 0 auto; padding: 0 2rem 6rem;
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+    
+    .portfolio-item {
+      background: var(--color-bg-card); border: 1px solid var(--color-border);
+      border-radius: 20px; overflow: hidden; transition: all 0.4s ease;
+      position: relative;
+    }
+    
+    .portfolio-item:hover {
+      transform: translateY(-10px); border-color: var(--color-accent);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+    
+    /* Hide filtered items */
+    .portfolio-item.hidden { display: none; }
+    
+    .portfolio-img {
+      position: relative; aspect-ratio: 16/10; overflow: hidden;
+      background-color: #222;
+    }
+    
+    .portfolio-img img {
+      width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;
+    }
+    
+    .portfolio-item:hover .portfolio-img img { transform: scale(1.1); }
+    
+    .portfolio-overlay {
+      position: absolute; inset: 0; background: rgba(13, 13, 13, 0.85);
+      display: flex; align-items: center; justify-content: center; gap: 15px;
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    
+    .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+    
+    .portfolio-overlay a {
+      width: 45px; height: 45px; background: var(--color-accent); color: var(--color-bg);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; transition: transform 0.3s;
+    }
+    .portfolio-overlay a:hover { transform: scale(1.1); background: #fff; }
+    
+    .portfolio-info { padding: 1.5rem; }
+    
+    .portfolio-info h4 {
+      font-family: var(--font-primary); font-size: 1.3rem; font-weight: 600;
+      color: var(--color-text); margin-bottom: 0.5rem;
+    }
+    
+    .portfolio-info p {
+      color: var(--color-text-secondary); font-size: 0.9rem; margin-bottom: 1rem;
+    }
+    
+    .portfolio-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    
+    .portfolio-tags span {
+      font-size: 0.75rem; padding: 0.3rem 0.8rem; border-radius: 20px;
+      background: rgba(212, 175, 55, 0.1); color: var(--color-accent);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .main-footer {
+      background: var(--color-bg-secondary); border-top: 1px solid var(--color-border);
+      padding: 3rem 0; text-align: center;
+    }
+    .footer-text { color: var(--color-text-secondary); font-size: 0.9rem; }
+    .footer-text span { color: var(--color-accent); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .page-header { padding-top: 120px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-text">MS</span>
+        <span class="logo-subtext">Developer</span>
+      </a>
+      
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <h1 class="page-title">My Portfolio</h1>
+      <p class="page-subtitle">A collection of my recent work in Web Development, Oracle APEX, and Creative Design.</p>
+    </div>
+  </header>
+
+  <!-- Portfolio Filters -->
+  <div class="portfolio-filters">
+    <button class="filter-btn active" data-filter="all">All Projects</button>
+    <button class="filter-btn" data-filter="agency">Agency</button>
+    <button class="filter-btn" data-filter="corporate">Corporate</button>
+    <button class="filter-btn" data-filter="education">Education</button>
+    <button class="filter-btn" data-filter="creative">Creative</button>
+  </div>
+
+  <!-- Portfolio Grid -->
+  <div class="portfolio-container">
+    <div class="portfolio-grid">
+      
+      <!-- 1. Travel Agency 3 -->
+      <div class="portfolio-item filter-agency">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/travel-3.png" alt="Travel Agency 3">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/travel-3.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://sayeed62135.github.io/travel-3/" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Elite Voyages</h4>
+          <p>Digital Agency Website</p>
+          <div class="portfolio-tags"><span>Business</span><span>Agency</span></div>
+        </div>
+      </div>
+
+      <!-- 2. BMW Showcase 2 -->
+      <div class="portfolio-item filter-corporate">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/bmw-2.png" alt="BMW Showcase Website 2">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/bmw-2.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://sayeed62135.github.io/bmw-2/" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>BMW Showcase Website 2</h4>
+          <p>Luxury Automotive Presentation</p>
+          <div class="portfolio-tags"><span>Corporate</span><span>Automotive</span></div>
+        </div>
+      </div>
+
+      <!-- 3. Subflex Agency -->
+      <div class="portfolio-item filter-agency">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/subflex.png" alt="Subflex Agency">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/subflex.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://www.subflex.agency/" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Subflex Agency</h4>
+          <p>Digital Agency Website</p>
+          <div class="portfolio-tags"><span>Business</span><span>Agency</span></div>
+        </div>
+      </div>
+
+      <!-- 4. Travel Agency 2 -->
+      <div class="portfolio-item filter-agency">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/travel-2.png" alt="Travel Agency 2">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/travel-2.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://sayeed62135.github.io/travel-2/" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Elite Voyages</h4>
+          <p>Digital Agency Website</p>
+          <div class="portfolio-tags"><span>Business</span><span>Agency</span></div>
+        </div>
+      </div>
+
+      <!-- 5. UMZ Madrasa --> 
+      <div class="portfolio-item filter-education">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/umz.png" alt="UMZ Madrasa">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/umz.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://www.umzmadrasa.com/" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>UMZ Madrasa</h4>
+          <p>Educational Institution Website</p>
+          <div class="portfolio-tags"><span>Education</span><span>Institution</span></div>
+        </div>
+      </div>
+
+      <!-- 6. Swadesh IT -->
+      <div class="portfolio-item filter-agency">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/swit.png" alt="Swadesh IT">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/swit.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://sayeed62135.github.io/swadesh-it/" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Swadesh IT</h4>
+          <p>IT Solutions & Services</p>
+          <div class="portfolio-tags"><span>Business</span><span>Technology</span></div>
+        </div>
+      </div>
+
+      <!-- 7. BMW Showcase 1 -->
+      <div class="portfolio-item filter-corporate">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/bmw-1.png" alt="BMW Showcase Website 1">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/bmw-1.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://sayeed62135.github.io/bmw-1/" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>BMW Showcase Website 1</h4>
+          <p>Premium Automotive Experience</p>
+          <div class="portfolio-tags"><span>Corporate</span><span>Automotive</span></div>
+        </div>
+      </div>
+
+      <!-- 8. KMS -->
+      <div class="portfolio-item filter-education">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/kms.png" alt="KMS">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/kms.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://sayeed62135.github.io/kms/" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>KMS</h4>
+          <p>Knowledge Management System</p>
+          <div class="portfolio-tags"><span>Education</span><span>System</span></div>
+        </div>
+      </div>
+
+      <!-- 9. Kazi -->
+      <div class="portfolio-item filter-agency">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/kazi.png" alt="Kazi">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/kazi.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://sayeed62135.github.io/kazi/" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Kazi</h4>
+          <p>Business Services Platform</p>
+          <div class="portfolio-tags"><span>Business</span><span>Services</span></div>
+        </div>
+      </div>
+
+      <!-- 10. IELTS -->
+      <div class="portfolio-item filter-education">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/ielts.png" alt="IELTS Platform">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/ielts.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://sayeed62135.github.io/IELTS/" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>IELTS Platform</h4>
+          <p>Language Learning & Testing</p>
+          <div class="portfolio-tags"><span>Education</span><span>Learning</span></div>
+        </div>
+      </div>
+
+      <!-- 11. RIJM BD -->
+      <div class="portfolio-item filter-corporate">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/rijmbd.png" alt="RIJM Bangladesh">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/rijmbd.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://www.rijmbd.org/" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>RIJM Bangladesh</h4>
+          <p>Organization Website</p>
+          <div class="portfolio-tags"><span>Corporate</span><span>Organization</span></div>
+        </div>
+      </div>
+
+      <!-- 12. 10 Takar Sheba -->
+      <div class="portfolio-item filter-corporate">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/10TS.png" alt="10 Takar Sheba">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/10TS.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://www.10takarsheba.com/" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>10 Takar Sheba</h4>
+          <p>E-commerce Platform</p>
+          <div class="portfolio-tags"><span>Business</span><span>E-commerce</span></div>
+        </div>
+      </div>
+
+      <!-- 13. Travel Agency 1 -->
+      <div class="portfolio-item filter-agency">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/travel-1.png" alt="Travel Agency 1">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/travel-1.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://sayeed62135.github.io/travel-1/" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Elite Voyages</h4>
+          <p>Digital Agency Website</p>
+          <div class="portfolio-tags"><span>Business</span><span>Agency</span></div>
+        </div>
+      </div>
+
+      <!-- 14. Personal Portfolio -->
+      <div class="portfolio-item filter-creative">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/portfolio-1.png" alt="Personal Portfolio">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/portfolio-1.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://sayeed62135.github.io/portfolio1/" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Personal Portfolio</h4>
+          <p>Creative Showcase</p>
+          <div class="portfolio-tags"><span>Creative</span><span>Portfolio</span></div>
+        </div>
+      </div>
+
+      <!-- 15. Windows XP -->
+      <div class="portfolio-item filter-creative">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/xp.png" alt="Windows XP Recreation">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/xp.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://sayeed62135.github.io/windows-xp/" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Windows XP Recreation</h4>
+          <p>Nostalgic UI Experience</p>
+          <div class="portfolio-tags"><span>Creative</span><span>Interactive</span></div>
+        </div>
+      </div>
+
+      <!-- 16. Teck Solution -->
+      <div class="portfolio-item filter-agency">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/tecksolution.png" alt="Teck Solution">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/tecksolution.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://sayeed62135.github.io/tecksolution/" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Teck Solution</h4>
+          <p>Tech Solutions Provider</p>
+          <div class="portfolio-tags"><span>Business</span><span>Technology</span></div>
+        </div>
+      </div>
+
+      <!-- 17. Beatles Project -->
+      <div class="portfolio-item filter-creative">
+        <div class="portfolio-img">
+          <img src="assets/img/portfolio/beatls.png" alt="Beatles Tribute">
+          <div class="portfolio-overlay">
+            <a href="assets/img/portfolio/beatls.png" class="glightbox"><i class="bi bi-plus"></i></a>
+            <a href="https://sayeed62135.github.io/project05/beatles.html" target="_blank"><i class="bi bi-link"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <h4>Beatls Tribute</h4>
+          <p>Music Band Showcase</p>
+          <div class="portfolio-tags"><span>Creative</span><span>Entertainment</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <p class="footer-text">&copy; 2025 <span>Mohammad Sayeed</span>. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- jQuery (Required for Isotope if we were using it, but we'll write vanilla JS for filters) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- GLightbox -->
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // ============================================
+      // 1. Mobile Menu Toggle
+      // ============================================
+      const navToggle = document.querySelector('.nav-toggle');
+      const navMenu = document.querySelector('.nav-menu');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      if (navToggle) {
+        navToggle.addEventListener('click', () => {
+          navToggle.classList.toggle('active');
+          navMenu.classList.toggle('active');
+        });
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      });
+
+      // ============================================
+      // 2. Portfolio Filtering Logic (Vanilla JS)
+      // ============================================
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Remove active class from all buttons
+          filterBtns.forEach(b => b.classList.remove('active'));
+          // Add active class to clicked button
+          btn.classList.add('active');
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          portfolioItems.forEach(item => {
+            if (filterValue === 'all' || item.classList.contains('filter-' + filterValue)) {
+              item.classList.remove('hidden');
+              // Small animation when showing
+              item.style.opacity = '0';
+              setTimeout(() => item.style.opacity = '1', 50);
+            } else {
+              item.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // ============================================
+      // 3. GLightbox Initialization
+      // ============================================
+      const lightbox = GLightbox({
+        selector: '.glightbox',
+        touchNavigation: true,
+        loop: true,
+      });
+
+      // ============================================
+      // 4. Scroll Effect for Nav
+      // ============================================
+      const nav = document.querySelector('.main-nav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+
+    });
+  </script>
+</body>
+</html>
